@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    使用无参构造器注入-->
+<!--    <bean id="user" class="com.abraham.pojo.User">-->
+<!--        <property name="name" value="longlong"></property>-->
+<!--    </bean>-->
+
+<!--    下标赋值-->
+<!--    <bean id="user" class="com.abraham.pojo.User">-->
+<!--        <constructor-arg index="0" value="long"/>-->
+<!--    </bean>-->
+
+<!--    不建议使用，通过类型创建-->
+<!--    <bean id="user" class="com.abraham.pojo.User">-->
+<!--        <constructor-arg type="java.lang.String" value="long"/>-->
+<!--    </bean>-->
+
+<!--    直接通过参数名构建-->
+    <bean id="user" class="com.abraham.pojo.User">
+        <constructor-arg name="name" value="long"/>
+    </bean>
+
+<!--    &lt;!&ndash;-->
+<!--        id：bean的唯一标识符，也就是相当于我们学的对象名-->
+<!--        class：bean对象所对应的权限定名：包名+类名-->
+<!--        name：别名,而且name可以同时取多个别名,分别可以用空格、逗号、分号进行分割-->
+<!--    &ndash;&gt;-->
+<!--    <bean id="userTwo" class="com.abraham.pojo.UserTwo" name="woshibieming,userTwo2 userTwo3;userTwo4">-->
+
+<!--    </bean>-->
+
+<!--&lt;!&ndash;    别名：如果添加了别名，我们也可以使用别名来获取到这个对象&ndash;&gt;-->
+<!--    <alias name="user" alias="user2"/>-->
+</beans>

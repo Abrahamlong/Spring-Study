@@ -1,4 +1,4 @@
-package com.longlong.dao;
+package com.abraham.dao;
 
 /**
  * @author long
