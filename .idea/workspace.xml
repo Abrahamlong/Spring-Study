@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spring-04-di/src/main/java/com/abraham/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-04-di/src/main/resources/userBean.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-05-autowired/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-05-autowired/src/main/java/com/abraham/pojo/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-05-autowired/src/main/java/com/abraham/pojo/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-05-autowired/src/main/java/com/abraham/pojo/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/classes/com/longlong/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/classes/com/longlong/dao/UserDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/classes/com/longlong/dao/UserDaoMysqlImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/classes/com/longlong/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/classes/com/longlong/service/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/test-classes/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/spring-01-ioc1/target/test-classes/MyTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-04-di/src/main/java/com/abraham/pojo/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-04-di/src/main/java/com/abraham/pojo/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-04-di/src/main/java/com/abraham/pojo/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-04-di/src/main/java/com/abraham/pojo/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-04-di/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-04-di/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-04-di/src/test/java/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-04-di/src/test/java/MyTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/spring-01-ioc1/target/" />
@@ -54,7 +36,21 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-01-ioc1/src/test/java/MyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spring-01-ioc1/src/main/resources/beans.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spring-05-autowired/src/main/java/com/abraham/pojo/People.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="118">
@@ -134,37 +130,43 @@
             <path>
               <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-05-autowired" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-05-autowired" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-05-autowired" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-05-autowired" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-01-ioc1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-05-autowired" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -176,7 +178,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599487671815" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599488276763" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
@@ -248,6 +250,14 @@
       <workItem from="1599294192367" duration="3135000" />
       <workItem from="1599306374215" duration="688000" />
     </task>
+    <task id="LOCAL-00001" summary="9.7 学习记录补充">
+      <created>1599488243444</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599488243444</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -283,7 +293,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7325000" />
+    <option name="totallyTimeSpent" value="7475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -299,7 +309,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32843137" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34150326" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34150326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -324,18 +334,15 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="9.7 学习记录补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.7 学习记录补充" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-01-ioc1/src/test/java/MyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -421,6 +428,16 @@
           <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-01-ioc1/src/test/java/MyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-01-ioc1/src/main/resources/beans.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

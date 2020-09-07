@@ -223,9 +223,65 @@ public class Student {
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="address" class="com.abraham.pojo.Address">
+        <property name="address" value="福建省龙岩市"/>
+    </bean>
+
     <bean id="student" class="com.abraham.pojo.Student">
         <!--第一种，普通值注入，value-->
         <property name="name" value="long"/>
+
+        <!--第二种，Bean注入，ref-->
+        <property name="address" ref="address"/>
+
+        <!--第三种，数组注入，array-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+
+        <!--第四种，List注入-->
+        <property name="hobbys">
+            <list>
+                <value>听歌</value>
+                <value>敲代码</value>
+                <value>看电影</value>
+            </list>
+        </property>
+
+        <!--第五种，Map注入-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="666666"/>
+                <entry key="银行卡" value="888888"/>
+            </map>
+        </property>
+
+        <!--第六种，Set注入-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>COC</value>
+                <value>BOB</value>
+            </set>
+        </property>
+
+        <!--第七种，null注入-->
+        <property name="wife">
+            <null/>
+        </property>
+
+        <!--第八种，properties注入-->
+        <property name="info">
+            <props>
+                <prop key="学号">2016551206</prop>
+                <prop key="性别">girl</prop>
+                <prop key="emial">1486460308@qq.com</prop>
+            </props>
+        </property>
     </bean>
 </beans>
 ```
@@ -237,25 +293,98 @@ public class MyTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Student student = (Student) context.getBean("student");
-        System.out.println(student.getName());
-        System.out.println(student.getAddress());
+        System.out.println(student.toString());
+        
+        /**
+         * name='long'
+         * address=Address{address='福建省龙岩市'}
+         * books=[红楼梦, 西游记, 水浒传]
+         * hobbys=[听歌, 敲代码, 看电影]
+         * card={身份证=666666, 银行卡=888888}
+         * games=[LOL, COC, BOB]
+         * info={学号=2016551206, 性别=girl, emial=1486460308@qq.com}
+         * wife='null'
+         */
     }
 }
 ```
 
-
-
-
-
 #### 7.3  其它方式注入
 
+我们可以使用c命名空间和p命名空间进行注入：
+
+使用前要导入约束依赖：
+
+```xml
+xmlns:p="http://www.springframework.org/schema/p"
+```
+
+```xml
+  xmlns:c="http://www.springframework.org/schema/c"
+```
+
+
+使用：      
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--p命名空间注入，可以直接注入属性的值：property-->
+    <bean id="user" class="com.abraham.pojo.User" p:name="long" p:age="24"/>
+
+    <!--c命名空间注入，可以通过构造器注入属性的值：construct-args-->
+    <bean id="user2" class="com.abraham.pojo.User" c:name="long" c:age="24"/>
+
+</beans>
+```
+
+#### 7.4  Bean的作用域
+
+![image-20200907213340735](C:\Users\abraham\AppData\Roaming\Typora\typora-user-images\image-20200907213340735.png)
+
+单例模式（Spring默认的机制）：
+
+![img](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/images/singleton.png)
+
+```xml
+<!-- the following is equivalent, though redundant (singleton scope is the default) -->
+<bean id="accountService" class="com.something.DefaultAccountService" scope="singleton"/>
+```
+
+原型模式：每次从容器get的时候都会产生新的对象。
+
+![prototype](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/images/prototype.png)
+
+```xml
+<bean id="accountService" class="com.something.DefaultAccountService" scope="prototype"/>
+```
+
+其余的request、session、application这些只能在web中使用到
 
 
 
+### 8. Bean的自动装配
 
+- 自动装配是Spring满足依赖的一种方式；
 
+- Spring会在上下文中自动寻找，并给Bean装配属性；
 
+  
 
+> 在Spring中有三种装配方式
+>
+> 1、在xml中显示的配置
+>
+> 2、在Java中显示配置
+>
+> 3、隐式的自动装配Bean【重要】
+
+#### 8.1  测试
 
 
 
