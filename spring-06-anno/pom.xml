@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-04-di</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>spring-06-anno</artifactId>
 
 
 </project>

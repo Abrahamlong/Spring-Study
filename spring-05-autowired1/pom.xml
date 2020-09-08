@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-05-autowired</artifactId>
+    <artifactId>spring-05-autowired1</artifactId>
 
 
 </project>

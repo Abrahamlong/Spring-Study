@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @version 1.0.0
  * @date 2020/9/7
  */
-public class MyTest {
+public class MyTest02 {
     public static void main(String[] args) {
         // 获取Spring的上下文对象
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");

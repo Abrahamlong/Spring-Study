@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2020/9/5
  */
 
-public class MyTest {
+public class MyTest01 {
     public static void main(String[] args) {
         /**
          * 传统的方法去new对象
