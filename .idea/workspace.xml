@@ -2,41 +2,128 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo01/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo01/Host.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo01/Proxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo01/Rent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/UserServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Host.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/ProxyInvocationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Rent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/ProxyInvocationHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/DiyPointCut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/AfterLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-09-aop/src/test/java/MyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Spring.md" beforeDir="false" afterPath="$PROJECT_DIR$/Spring.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-01-ioc1/target/test-classes/MyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/spring-06-anno/target/" />
+    <ignored path="$PROJECT_DIR$/spring-01-ioc1/target/" />
+    <ignored path="$PROJECT_DIR$/spring-02-hellospring/target/" />
+    <ignored path="$PROJECT_DIR$/spring-08-proxy/target/" />
+    <ignored path="$PROJECT_DIR$/spring-03-ioc2/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/spring-05-autowired1/target/" />
+    <ignored path="$PROJECT_DIR$/spring-07-appconfig/target/" />
+    <ignored path="$PROJECT_DIR$/spring-04-di/target/" />
+    <ignored path="$PROJECT_DIR$/spring-09-aop/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/DiyPointCut.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-09-aop/src/test/java/MyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="spring-beans.schema" />
         <option value="Interface" />
+        <option value="spring-beans.schema" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/ProxyInvocationHandler.java" />
+        <option value="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" />
+        <option value="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/Client.java" />
+        <option value="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/ProxyInvocationHandler.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-09-aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserService.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/Log.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/Log.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/AfterLog.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/test/java/MyTest.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/DiyPointCut.java" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -45,27 +132,121 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="spring-study" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="spring-study" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
   <component name="ProjectId" id="1h5HmBidUW12vDH9cXHeIydXvJN" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="abraham" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="abraham" type="462c0819:PsiDirectoryNode" />
+              <item name="diy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Spring-Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Spring-Study" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-09-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599488276763" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599665062374" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IDEA project\Spring-Study" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IDEA project\Spring-Study\spring-08-proxy\src\main\java\com\abraham\demo03" />
       <recent name="D:\IDEA project\Spring-Study\spring-05-autowired\src\main" />
       <recent name="D:\IDEA project\Spring-Study\spring-05-autowired\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.abraham.demo04" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA project\Spring-Study" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,13 +261,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client (1)">
+  <component name="RunManager" selected="Application.MyTest">
     <configuration name="Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.abraham.demo03.Client" />
       <module name="spring-08-proxy" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.abraham.demo03.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.abraham.demo04.Client" />
+      <module name="spring-08-proxy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abraham.demo04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,13 +314,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyTest" />
+      <module name="spring-09-aop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Customer" />
       <item itemvalue="Application.Client (1)" />
+      <item itemvalue="Application.Client (2)" />
+      <item itemvalue="Application.MyTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MyTest" />
+        <item itemvalue="Application.Client (2)" />
         <item itemvalue="Application.Client (1)" />
         <item itemvalue="Application.Customer" />
         <item itemvalue="Application.Client" />
@@ -174,6 +379,45 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9912000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27265862" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34150326" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32843137" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.2673716" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -183,17 +427,186 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="9.7 学习记录补充" />
     <MESSAGE value="9.8 学习记录代码" />
     <option name="LAST_COMMIT_MESSAGE" value="9.8 学习记录代码" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/ProxyInvocationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo01/Rent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/UserServiceProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/ProxyInvocationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo02/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.0.RELEASE/spring-aop-5.2.0.RELEASE.jar!/org/springframework/aop/AfterReturningAdvice.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/AfterLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="14" column="81" selection-start-line="14" selection-start-column="81" selection-end-line="14" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/test/java/MyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/DiyPointCut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
