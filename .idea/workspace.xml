@@ -1,35 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="9.9 学习记录代码">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/java/com/abraham/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/java/com/abraham/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/java/com/abraham/mapper/UserMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/java/com/abraham/mapper/UserMapperImplTwo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/java/com/abraham/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/resources/spring-dao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-10-mybatis/src/test/java/MyTest10.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/resources/spring-dao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-11-transaction/src/test/java/MyTest11.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Spring.md" beforeDir="false" afterPath="$PROJECT_DIR$/Spring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/BeforeLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +204,7 @@
       <workItem from="1599294192367" duration="3135000" />
       <workItem from="1599306374215" duration="688000" />
       <workItem from="1599533709302" duration="29573000" />
-      <workItem from="1599717403313" duration="12645000" />
+      <workItem from="1599717403313" duration="13569000" />
     </task>
     <task id="LOCAL-00001" summary="9.7 学习记录补充">
       <created>1599488243444</created>
@@ -246,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599564540230</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="9.10 学习代码更新">
+      <created>1599736677194</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599736677194</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +263,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="9.7 学习记录补充" />
     <MESSAGE value="9.8 学习记录代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.8 学习记录代码" />
+    <MESSAGE value="9.10 学习代码更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.10 学习代码更新" />
   </component>
 </project>
