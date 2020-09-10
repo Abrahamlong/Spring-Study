@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  * @author long
  * @Date 2020/9/9
  */
-public class Log implements MethodBeforeAdvice {
+public class BeforeLog implements MethodBeforeAdvice {
 
     // method：要执行的目标对象的方法
     // objects/args：参数

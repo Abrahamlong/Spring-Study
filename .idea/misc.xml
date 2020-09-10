@@ -13,6 +13,10 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/spring-05-autowired/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-05-autowired1/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-06-anno/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-07-appconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-08-proxy/pom.xml" />
       </set>
     </option>
   </component>

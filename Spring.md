@@ -829,7 +829,7 @@ public class Client {
 
 #### 11.2  动态代理
 
-> demo3包
+> demo03、demo04包
 
 - 动态代理和静态代理的角色一样；
 - 动态代理的代理类是动态生成的，不是我们直接写好的；
@@ -884,15 +884,256 @@ AOP意为：**面向切面编程**，通过预编译方式和运行期动态代�
 </dependency>
 ```
 
-方式一：使用Spring的API 接口  【主要是Spring API接口实现】【最强大的】
+**方式一：使用Spring的API 接口**  【主要是Spring API接口实现】【最强大的】
+
+配置文件：
+
+```xml
+    <!--注册bean-->
+    <bean id="userService" class="com.abraham.service.UserServiceImpl"/>
+    <bean id="log" class="com.abraham.log.Log"/>
+    <bean id="afterLog" class="com.abraham.log.AfterLog"/>
+
+    <!--方式一：使用原生的Spring API 接口-->
+    <!-- 配置aop,需要导入aop的约束-->
+    <aop:config>
+        <!--切入点:
+                expression:表达式；
+                execution：要执行的位置 （ * * * * *）
+        -->
+        <aop:pointcut id="pointcut" expression="execution(* com.abraham.service.UserServiceImpl.*(..))"/>
+        <!--执行环绕增加-->
+        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+```
+
+代理文件：
+
+```java
+public class BeforeLog implements MethodBeforeAdvice {
+
+    // method：要执行的目标对象的方法
+    // objects/args：参数
+    // o/target：目标对象
+    public void before(Method method, Object[] args, Object target) throws Throwable {
+        System.out.println(target.getClass().getName() + "的" + method.getName() + "被执行了！");
+
+    }
+}
+```
+
+```java
+public class AfterLog implements AfterReturningAdvice {
+
+    // object/returnValue:返回值
+    public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
+        System.out.println("执行了 " + method.getName() + "方法，返回的结果为：" + returnValue);
+    }
+}
+
+```
+
+测试文件：
+
+```java
+public class MyTest {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        // 动态代理代理的是一个接口（注意）
+        UserService userService = (UserService) context.getBean("userService");
+
+        userService.select();
+    }
+}
+```
+
+**方式二：使用自定义类来实现AOP** 【主要是切面的定义】
+
+配置文件：
+
+```xml
+    <!--方式二：自定义类-->
+    <!--<bean id="diy" class="com.abraham.diy.DiyPointCut"/>-->
+    <aop:config>
+        <!--自定义切面，ref为要引用的类-->
+        <aop:aspect ref="diy">
+            <!--切入点-->
+            <aop:pointcut id="point" expression="execution(* com.abraham.service.UserServiceImpl.*(..))"/>
+            <!--通知-->
+            <aop:before method="before" pointcut-ref="point"/>
+            <aop:after method="after" pointcut-ref="point"/>
+        </aop:aspect>
+    </aop:config>
+```
+
+代理文件：
+
+```java
+public class DiyPointCut {
+
+    public void before(){
+        System.out.println("==========方法执行前==========");
+    }
+
+    public void after(){
+        System.out.println("==========方法执行后==========");
+    }
+}
+```
+
+测试文件：**同方式一；**
+
+**方式三：使用注解实现**
+
+注解支持：
+
+![image-20200910141241032](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200910141241032.png)
 
 
 
-方式二：使用自定义类来实现AOP 【主要是切面的定义】
+注解文件：
+
+```xml
+	<!--方式三：使用注解实现AOP-->
+    <bean id="annotationPointCut" class="com.abraham.diy.AnnotationPointCut"/>
+    <!--开启注解支持-->
+    <aop:aspectj-autoproxy/>
+```
+
+自定义的代理文件：
+
+```java
+// 使用注解方式实现AOP
+@Aspect // 该注解标注这个类是一个切面
+public class AnnotationPointCut {
+
+    @Before("execution(* com.abraham.service.UserServiceImpl.*(..))")
+    public void before(){
+        System.out.println("==========|| 方法执行前 ||==========");
+    }
+
+    @After("execution(* com.abraham.service.UserServiceImpl.*(..))")
+    public void after(){
+        System.out.println("==========|| 方法执行后 ||==========");
+    }
+
+    // 在环绕增强中，我们可以给定一个参数，代表我们要获取处理切入的点
+    @Around("execution(* com.abraham.service.UserServiceImpl.*(..))")
+    public void around(ProceedingJoinPoint pjp){
+        System.out.println("========环绕前========");
+
+        // 获得签名,返回被执行的方法名称
+        Signature signature = pjp.getSignature();
+        System.out.println("  " + signature);
+
+        // 执行方法
+        try {
+            Object proceed = pjp.proceed();
+//            System.out.println("###" + proceed);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        System.out.println("========环绕后========");
+    }
+}
+```
+
+----
+
+### 13. 整合Mybatis
+
+> 
+
+步骤：
+
+- 导入相关的jar包
+
+  - junit
+
+  - MyBatis
+
+  - MySQL数据库
+
+  - spring相关
+
+  - AOP织入
+
+  - MyBatis-spring【new】
+
+    ```xml
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+    
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.47</version>
+            </dependency>
+    
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.5.2</version>
+            </dependency>
+    
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>5.1.9.RELEASE</version>
+            </dependency>
+            <!--Spring操作数据库需要一个spring-jdbc-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>5.1.9.RELEASE</version>
+            </dependency>
+    
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.9.6</version>
+            </dependency>
+    
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+        </dependencies>
+    ```
+
+- 编写配置文件
+- 测试
+
+#### 12.1  回忆MyBatis
+
+1. 编写实体类；
+2. 编写核心配置文件；
+3. 编写接口；
+4. 编写Mapper.xml；
+5. 测试；
+
+#### 12.2  MyBatis-Spring
+
+1. 编写数据源；
+2. SqlSessionFactory；
+3. SqlSessionTemplate；
+4. 需要给接口增加实现类；
+5. 将自己写的实现类注入到Spring中；
+6. 测试使用即可；
 
 
 
-方式三：使用注解实现
+
+
+
 
 
 
