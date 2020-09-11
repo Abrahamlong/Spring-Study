@@ -4,6 +4,8 @@
     <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Spring.md" beforeDir="false" afterPath="$PROJECT_DIR$/Spring.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-11-transaction/src/main/resources/spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/resources/spring-dao.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +80,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599665660038" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/spring-08-proxy/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
@@ -204,7 +209,7 @@
       <workItem from="1599294192367" duration="3135000" />
       <workItem from="1599306374215" duration="688000" />
       <workItem from="1599533709302" duration="29573000" />
-      <workItem from="1599717403313" duration="13569000" />
+      <workItem from="1599717403313" duration="16182000" />
     </task>
     <task id="LOCAL-00001" summary="9.7 学习记录补充">
       <created>1599488243444</created>
@@ -227,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599736677194</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="9.10 笔记更新">
+      <created>1599737458971</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599737458971</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +276,7 @@
     <MESSAGE value="9.7 学习记录补充" />
     <MESSAGE value="9.8 学习记录代码" />
     <MESSAGE value="9.10 学习代码更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.10 学习代码更新" />
+    <MESSAGE value="9.10 笔记更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.10 笔记更新" />
   </component>
 </project>

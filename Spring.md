@@ -1148,9 +1148,47 @@ public class AnnotationPointCut {
 - 持久性
   - 事务一旦提交，无论系统发生声明问题，结果都不会被影响，被持久化的写到存储器中；
 
+#### 14.2  spring中的事务管理
+
+- 声明式事务：AOP；
+
+  配置文件：
+
+  ```java
+  	<!--结合AOP实现事务的织入-->
+      <!--配置事务通知：-->
+      <tx:advice id="txAdvice" transaction-manager="transactionManager">
+          <!--给哪些方法配置事务-->
+          <!--配置事务的传播特性：new propagation-->
+          <tx:attributes>
+              <tx:method name="add" propagation="REQUIRED"/>
+              <tx:method name="delete" propagation="REQUIRED"/>
+              <tx:method name="update" propagation="REQUIRED"/>
+              <tx:method name="select" read-only="true"/>
+              <tx:method name="*" propagation="REQUIRED"/>   <!--所有方法-->
+          </tx:attributes>
+      </tx:advice>
+  
+      <!--配置事务的切入-->
+      <aop:config>
+          <aop:pointcut id="txPointCut" expression="execution(* com.abraham.mapper.*.*(..))"/>
+          <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+      </aop:config>
+  ```
+
+  **配置事务的传播特性：propagation**
+
+  ![image-20200911101932507](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200911101932507.png)
+
+- 编程式事务：需要在代码中，进行事务的管理；
 
 
 
+**为什么需要事务？**
+
+- **如果不配置事务，可能存在数据提交不一致的问题；**
+- **如果我们不在spring中配置声明式事务，我们就需要在代码中手动配置；**
+- **事务在项目的开发中十分的重要，涉及到数据的一致性和完整性；**
 
 
 
