@@ -4,7 +4,7 @@ package com.abraham.demo01;
  * @author long
  * @date 2020/9/9
  */
-// 代理
+// 代理角色
 public class Proxy {
     private Host host;
 

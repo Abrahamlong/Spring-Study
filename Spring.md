@@ -1,4 +1,10 @@
+
+
 # Spring
+
+狂神文档：https://www.cnblogs.com/renxuw/p/12994080.html
+
+官方文档：https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#spring-core
 
 ### 1. Spring的优点
 
@@ -48,7 +54,9 @@
 
 ### 4. IOC控制反转
 
-> ==工程1：spring-01-ioc1==
+> #### ==工程1：spring-01-ioc1==
+
+#### 4.1 传统的业务实现方法
 
 1、UserDao  接口
 
@@ -74,7 +82,7 @@ public void setUserDao(UserDao userDao) {
 ```
 
 - 之前，程序是主动创建对象，控制权在程序员手上！
-- 使用了set注入之后，程序不再具有主动 性，而是变成了被动的接收对象！
+- 使用了set注入之后，程序不再具有主动性，而是变成了被动的接收对象！
 
 这种思想，从本质上解决了问题，我们程序员不用再去管理对象的创建了。系统的耦合性大大降低了，可以更加专注的在业务的实现上了，这是IOC的原型。
 
@@ -90,7 +98,9 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 
 **==控制反转是一种通过描述（XML或注解）并通过第三方生产或获取特定对象的方式。在Spring中实现控制反转的是IOC容器，其实现方法是依赖注入（DI）。==**
 
- XML的配置文件：==工程2：spring-02-hellospring==
+####  4.2 XML的配置文件：
+
+> #### ==工程2：spring-02-hellospring==
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,17 +111,96 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 </beans>
 ```
 
+#### 4.3 第一个Spring程序
+
+- 编写一个Hello实体类
+
+```java
+public class Hello {
+   private String name;
+
+   public String getName() {
+       return name;
+  }
+   public void setName(String name) {
+       this.name = name;
+  }
+
+   public void show(){
+       System.out.println("Hello,"+ name );
+  }
+}
+```
+
+- 编写我们的spring文件 , 这里我们命名为beans.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--使用Spring来创建对象，在Spring中这些都统称为Bean
+        类型 变量名 = new 类型();
+        Hello hello =new Hello();
+
+        id = 变量名;
+        class = new 类型();
+        bean = 对象    new Hello();
+        property 相当于给对象中的属性设置一个值
+    -->
+    <bean id="hello" class="com.abraham.pojo.Hello">
+        <property name="str" value="Spring"/>
+    </bean>
+
+</beans>
+```
+
+- 我们可以去进行测试了 .
+
+```java
+public class MyTest02 {
+    public static void main(String[] args) {
+        // 获取Spring的上下文对象
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        // 我们的对象现在都在Spring中管理了，我们要使用，直接在里面取出来就可以了
+        Hello hello = (Hello) context.getBean("hello");
+        System.out.println(hello.toString());
+    }
+}
+```
+
+==**思考：**==
+
+- Hello 对象是谁创建的 ? 【hello 对象是由Spring创建的
+- Hello 对象的属性是怎么设置的 ? hello 对象的属性是由Spring容器设置的
+
+**这个过程就叫控制反转 :**
+
+- 控制 : 谁来控制对象的创建 , 传统应用程序的对象是由程序本身控制创建的 , 使用Spring后 , 对象是由Spring来创建的
+- 反转 : 程序本身不创建对象 , 而变成被动的接收对象 .
+
+依赖注入 : 就是利用set方法来进行注入的.
+
+**==IOC是一种编程思想，由主动的编程变成被动的接收，要实现不同的操作 , 只需要在xml配置文件中进行修改 , 所谓的IoC,一句话搞定 : 对象由Spring 来创建 、管理、装配 !==**
+
+可以通过newClassPathXmlApplicationContext去浏览一下底层源码 .
+
 ----
 
 ### 5. IOC创建对象的方式
 
-> ==工程3：spring-03-ioc2==：beans.xml
+> #### ==工程3：spring-03-ioc2==：beans.xml
 
-1、使用无参构造创建对象，默认方法
+#### 5.1 使用无参构造创建对象
 
-2、假设我们要使用有参构造创建对象：
+【默认方法】
 
-​		（1）下标赋值；
+#### 5.2 使用有参构造创建对象
+
+- 方法一：下标赋值；
+
 
 ```xml
 <bean id="user" class="com.abraham.pojo.User">
@@ -119,7 +208,8 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 </bean>
 ```
 
-​		（2）类型；
+- 方法二：类型；(不推荐使用)
+
 
 ```xml
 <bean id="user" class="com.abraham.pojo.User">
@@ -127,7 +217,8 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 </bean>
 ```
 
-​		（3）直接通过参数名；
+- 方法三：直接通过参数名；
+
 
 ```xml
 <bean id="user" class="com.abraham.pojo.User">
@@ -141,7 +232,7 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 
 ### 6. Spring配置
 
-> ==工程3：spring-03-ioc2==：beans.xml
+> #### ==工程3：spring-03-ioc2==：beans.xml
 
 #### 6.1  别名（alias）
 
@@ -176,13 +267,13 @@ Spring容器在初始化时先读取配置文件，根据配置文件或元数�
 
 ### 7. 依赖注入（DI)
 
-> ==工程4：spring-04-di==
+> #### ==工程4：spring-04-di==
 
 #### 7.1  构造器注入
 
-前文已经讲述。
+【前文章节5已经描述】
 
-#### 7.2  Set方式注入（重点）
+#### 7.2  Set方式注入【重点】
 
 - 依赖注入：
 
@@ -223,7 +314,7 @@ public class Student {
 }
 ```
 
-3、applicationContext.xml
+3、【applicationContext.xml】
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -319,7 +410,7 @@ public class MyTest04 {
 
 #### 7.3  其它方式注入
 
-我们可以使用c命名空间和p命名空间进行注入：
+- **我们可以使用c命名空间和p命名空间进行注入：**
 
 使用前要导入约束依赖：
 
@@ -332,7 +423,7 @@ xmlns:p="http://www.springframework.org/schema/p"
 ```
 
 
-使用：      
+使用：【userBean.xml】      
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -351,22 +442,28 @@ xmlns:p="http://www.springframework.org/schema/p"
 </beans>
 ```
 
+**==P命名空间相当于通过无参构造注入，C命名空间相当于通过有参构造器注入参数；==**
+
 #### 7.4  Bean的作用域
 
 ![image-20200908144247057](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908144247057.png)
 
-单例模式（Spring默认的机制）：
+**单例模式（Spring默认的机制）：**
 
 ![img](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/images/singleton.png)
+
+- 当一个bean的作用域为Singleton，那么Spring IoC容器中只会存在一个共享的bean实例，并且所有对bean的请求，只要id与该bean定义相匹配，则只会返回bean的同一实例。Singleton是单例类型，就是在创建起容器时就同时自动创建了一个bean的对象，不管你是否使用，他都存在了，每次获取到的对象都是同一个对象。注意，Singleton作用域是Spring中的缺省作用域。要在XML中将bean定义成singleton，可以这样配置：
 
 ```xml
 <!-- the following is equivalent, though redundant (singleton scope is the default) -->
 <bean id="accountService" class="com.something.DefaultAccountService" scope="singleton"/>
 ```
 
-原型模式：每次从容器get的时候都会产生新的对象。
+**原型模式：**每次从容器get的时候都会产生新的对象。
 
 ![prototype](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/images/prototype.png)
+
+- 当一个bean的作用域为Prototype，表示一个bean定义对应多个对象实例。Prototype作用域的bean会导致在每次对该bean请求（将其注入到另一个bean中，或者以程序的方式调用容器的getBean()方法）时都会创建一个新的bean实例。Prototype是原型类型，它在我们创建容器的时候并没有实例化，而是当我们获取bean的时候才会去创建一个对象，而且我们每次获取到的对象都不是同一个对象。根据经验，对有状态的bean应该使用prototype作用域，而对无状态的bean则应该使用singleton作用域。在XML中将bean定义成prototype，可以这样配置：
 
 ```xml
 <bean id="accountService" class="com.something.DefaultAccountService" scope="prototype"/>
@@ -378,7 +475,7 @@ xmlns:p="http://www.springframework.org/schema/p"
 
 ### 8. Bean的自动装配
 
-> ==工程5：spring-05-autowired1==
+> #### ==工程5：spring-05-autowired1==
 
 - 自动装配是Spring满足依赖的一种方式；
 
@@ -405,11 +502,10 @@ xmlns:p="http://www.springframework.org/schema/p"
     <bean id="cat" class="com.abraham.pojo.Cat"/>
     <bean id="dog666" class="com.abraham.pojo.Dog"/>
     <!--
-        byName:会自动在容器上下文中查找和自己对象set方法后面的值对应的bean-id;
-        byType:会自动在容器上下文中查找和自己对象属性类型相同的bean (必须保证装配全局唯一,可省略id参数);
-        
+        byName:会自动在容器上下文中查找和自己对象set方法后面的值对应的bean-id;【按名称自动装配】
+        byType:会自动在容器上下文中查找和自己对象属性类型相同的bean (必须保证装配全局唯一,可省略id参数);【按类型自动装配】
     -->
-    <bean id="people" class="com.abraham.pojo.People" autowire="byType">
+    <bean id="people" class="com.abraham.pojo.People" autowire="byType"><!--autowire="byName"-->
         <property name="name" value="long"/>
 <!--        <property name="dog" ref="dog"/>-->
 <!--        <property name="cat" ref="cat"/>-->
@@ -419,7 +515,12 @@ xmlns:p="http://www.springframework.org/schema/p"
 
 ==**小结：**==
 
-- byname需要保证所有的bean的id唯一，并且这个bean需要和自动注入的属性的set方法的值一致；
+- 当一个bean节点带有 autowire byName的属性时；==**【按名称自动装配】**==
+  - 将查找其类中所有的set方法名，例如setCat，获得将set去掉并且首字母小写的字符串，即cat；
+  - 去spring容器中寻找是否有此字符串名称id的对象；
+  - 如果有，就取出注入；如果没有，就报空指针异常；
+
+- byName需要保证所有的bean的id唯一，并且这个bean需要和自动注入的属性的set方法的值一致；
 
   ![image-20200908113210094](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908113210094.png)
 
@@ -427,7 +528,9 @@ xmlns:p="http://www.springframework.org/schema/p"
 
   
 
-- bytype需要保证所有bean的class唯一，并且这个bean需要和自动注入的属性类型一致；
+- 使用autowire byType首先需要保证：同一类型的对象，在spring容器中唯一；如果不唯一，会报不唯一的异常； ==**【按类型自动装配】**==
+
+- byType需要保证所有bean的class唯一，并且这个bean需要和自动注入的属性类型一致；
 
 ![image-20200908113329995](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908113329995.png)
 
@@ -444,6 +547,13 @@ jdk1.5开始支持注解，spring2.5开始支持注解；
 使用注解须知：
 
 ​		1、导入约束；==context约束==
+
+```xml
+xmlns:context="http://www.springframework.org/schema/context"
+
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+```
 
 ​		2、配置注解的支持；==<context:annotation-config/>==
 
@@ -464,9 +574,7 @@ jdk1.5开始支持注解，spring2.5开始支持注解；
 
 ![image-20200908114323344](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908114323344.png)
 
-
-
-##### @Autowired
+##### @`Autowired` 注解 【按类型装配 byType】
 
 直接在属性上使用或者是在set方式上使用；也能在构造方法上使用；
 
@@ -505,11 +613,11 @@ public class People {
 }
 ```
 
-使用了@Autowired注解之后我们可以不用编写set方法了，前提是你这个自动在装配的属性在IOC容器中存在且符合ByName的名字要求；
+- 使用了@Autowired注解之后我们可以不用编写set方法了，前提是你这个自动在装配的属性在IOC容器中存在且符合ByName的名字要求；
 
-@Autowired(required = false)   如果显示定义了@Autowired的required属性值为false。说明这个对象可以为null，否则不允许为空，该方法的使用
 
-与注解@Nullable的使用相同；
+- @Autowired(required = false)   如果显示定义了@Autowired的required属性值为false。说明这个对象可以为null，否则不允许为空，该方法的使用与注解@Nullable的使用相同；
+
 
 ```java
 @Nullable    // 该注解标记的字段可以为null值
@@ -517,19 +625,22 @@ public class People {
 
 ![image-20200908140559602](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908140559602.png)
 
-**@Autowired标注的属性值可以与xml文件中的bean字段的id不相同，也可以识别并自动装配成功；**
+- **@Autowired标注的属性类型可以与xml文件中的bean字段的id不相同，也可以识别并自动装配成功；（xml文件中类型唯一的情况，因为@Autowired注解先匹配class中的属性类型是否一致）**
 
-![image-20200908141055762](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908141055762.png)
+![image-20200929145757084](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929145757084.png)
 
-![image-20200908141004324](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908141004324.png)
+![image-20200929150428437](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929150428437.png)
 
-**但是如果@Autowired自动装配的环境比较复杂（属性值与bean中的id都不相同时），自动装配无法通过一个注解【@Autowired】来完成的时候，我们可以使用@Qualifier(value="xxx")去配置@Autowired的使用，指定一个唯一的bean对象注入；**
+- **但是如果@Autowired自动装配的环境比较复杂（class中的属性类型不唯一，且id与属性类型的名称均不一致），自动装配无法通过一个注解【@Autowired】来完成的时候，我们可以使用@Qualifier(value="xxx")去配置@Autowired的使用，指定一个唯一的bean对象注入；**
 
 ![image-20200908141655773](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908141655773.png)
 
 ![image-20200908141608041](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200908141608041.png)
 
-##### @Resource注解
+- @Autowired是根据**类型**自动装配的，加上@Qualifier则可以根据byName的方式自动装配;
+- @Qualifier不能单独使用。
+
+##### `@Resource` 注解【**按照名称装配 ByName】**
 
 该注解用法类似@Autowired注解
 
@@ -545,18 +656,30 @@ public class People {
 }
 ```
 
-@Autowired注解与@Resource注解的区别：
+- **如果@Resource标注的属性名称与bean中的id值不相同的情况下，也可以根据class的属性类型进行成功装配（byType）**
+
+![image-20200929155500406](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929155500406.png)
+
+![image-20200929155435887](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929155435887.png)
+
+- **但是如果@Resource自动装配的环境比较复杂（bean中的id与标注的属性名称均不一致，且class中的属性类型不唯一），自动装配无法自动装配，需要配合name属性指定一个唯一的bean对象注入；**
+
+![image-20200929155743796](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929155743796.png)
+
+![image-20200929155826020](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200929155826020.png)
+
+##### 小结：**@Autowired注解与@Resource注解的区别：**
 
 - 都是用来自动装配 ，都可以放在属性字段上；
-- @Autowired 通过ByType的方式实现，而且必须要求这个对象存在；
-- @Resource 默认通过ByName的方式实现，如果找不到名字，则通过ByType实现，如果两个都找不到的情况下就会报错；
-- 执行的顺序不同：@Autowired通过ByType的方式实现；
+- `@Autowired` 默认**按照类型装配**（ByType），默认情况下必须要求依赖对象必须存在，如果要允许null 值，可以设置它的required属性为false，如：@Autowired(required=false) ，如果我们想使用名称装配可以结合@Qualifier注解进行使用
+- `@Resource` 默认**按照名称装配**（ByName），名称可以通过name属性进行指定。如果没有指定name属性，当注解写在字段上时，默认取字段名进行按照名称查找，如果注解写在setter方法上默认取属性名进行装配。当找不到与名称匹配的bean时才按照类型进行装配。但是需要注意的是，如果name属性一旦指定，就只会按照名称进行装配。
+- 它们的作用相同都是用注解方式注入对象，但执行顺序不同。@Autowired先byType，@Resource先byName。
 
 ----
 
 ### 9. 使用注解开发
 
-> ==工程6：spring-06-anno==
+> #### ==工程6：spring-06-anno==
 
 在Spring4之后，如果要使用注解开发必须保证aop的包导入成功；
 
@@ -583,17 +706,21 @@ public class People {
 
 #### 9.1  Bean
 
-参照第8点
+【参照前文章节8】
 
 #### 9.2  属性如何注入
 
 ```java
+/**
+ * @Component 注解等价于在applicationContext.xml文件中注册，即：<bean id="user" class="com.abraham.pojo.User"/>
+ * @Component 组件类
+ */
 @Component
 public class User {
 
-    // 相当于<bean id="user" class="com.abraham.pojo.User">
-    //        <property name="name" value="long"/>
-    //      </bean>
+    // 相当于：<bean id="user" class="com.abraham.pojo.User">
+    //           <property name="name" value="long"/>
+    //        </bean>
     @Value("long")
     public String name;
 
@@ -612,14 +739,19 @@ public class User {
 
 - dao  	   	【@Repository】
 
-- service       【@Service】
+- service       【@Service】      等价于Impl实现类
 - controller  【@Controller】
 
 以上这四个注解的功能是一样的，都是实现将某个类注册到Spring中，装配Bean；
 
 #### 9.4  自动装配
 
-参照第8点
+```markdown
+- @Autowired：自动装配，通过类型、名字识别；
+- @Qualifier：如果@Autowired不能唯一自动装配上属性，则通过该注解的value字段赋值为false来解决即@Qulifier(value = false)；
+- @Nullable：如果某字段标记了该注解，说明这个字段可以为null；
+- @Resource：自动装配，通过类型、名字识别，类似于@Autowired注解，是java原生注解；
+```
 
 #### 9.5  作用域
 
@@ -648,7 +780,7 @@ public class User {
 
 ### 10. 使用java的方式配置Spring
 
-> ==工程7：spring-07-appconfig==
+> #### ==工程7：spring-07-appconfig==
 
 **该章节要实现完全不使用spring的xml配置，全权交给 Java来做！！**
 
@@ -716,7 +848,7 @@ public class MyTest07 {
 
 ### 11. 代理模式
 
-> ==工程8：spring-08-proxy==
+> #### ==工程8：spring-08-proxy==
 
 为什么要学习代理模式？     因为这就是Spring AOP的底层。   【Spring AOP】与【Spring MVC】是重点
 
@@ -727,7 +859,7 @@ public class MyTest07 {
 
 #### 11.1  静态代理
 
-> demo1、demo2包
+> **demo1、demo2包**
 
 **角色分析：**
 
@@ -746,7 +878,7 @@ public class MyTest07 {
  1. 接口
 
     ```java
-    // 租房
+    // 租房：抽象角色
     public interface Rent {
         public void rent();
     }
@@ -755,7 +887,7 @@ public class MyTest07 {
  2. 真实角色
 
     ```java
-    // 房东
+    // 房东：真实角色
     public class Host implements Rent {
     
         public void rent() {
@@ -767,7 +899,7 @@ public class MyTest07 {
  3. 代理角色
 
     ```java
-    // 代理
+    // 代理角色
     public class Proxy {
         private Host host;
     
@@ -804,10 +936,10 @@ public class MyTest07 {
 // 租客
 public class Client {
     public static void main(String[] args) {
-        // 房东要租房子
+        // 房东要出租房子
         Host host = new Host();
 //        host.rent();
-        // 代理，中介帮房东租房子，但是中介一般会有一些其他的附属属性
+        // 代理，中介帮房东出租房子，但是中介一般会有一些其他的附属属性
         Proxy proxy = new Proxy(host);
         // 客户不要面对房东，直接找中介租房
         proxy.rent();
@@ -825,7 +957,9 @@ public class Client {
 
 **缺点：**
 
-一个真实角色就会产生一个代理角色，代码量就会翻倍，导致开发效率降低；
+- 一个真实角色就会产生一个代理角色，代码量就会翻倍，导致开发效率降低；
+
+**<u>  我们想要静态代理的好处，又不想要静态代理的缺点，所以 , 就有了动态代理!</u>**
 
 #### 11.2  动态代理
 

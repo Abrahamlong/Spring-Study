@@ -10,11 +10,11 @@ import javax.annotation.Resource;
  * @date 2020/9/8
  */
 public class People {
-    @Resource   // 该注解为java的原生注解，与@Autowired注解的功能相同
+    @Resource(name = "cat1")   // 该注解为java的原生注解，与@Autowired注解的功能相同
 //    @Autowired  // 在属性上使用@Autowired注解
     private Cat cat;
     @Autowired
-    @Qualifier(value = "dog2")
+//    @Qualifier(value = "dog2")
     private Dog dog;
     private String name;
 

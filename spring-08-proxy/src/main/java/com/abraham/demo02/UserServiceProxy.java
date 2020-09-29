@@ -4,11 +4,12 @@ package com.abraham.demo02;
  * @author long
  * @date 2020/9/9
  */
+// 代理角色
 public class UserServiceProxy implements UserService{
 
-    private UserServiceImpl userService;
+    private UserService userService;
 
-    public void setUserService(UserServiceImpl userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 

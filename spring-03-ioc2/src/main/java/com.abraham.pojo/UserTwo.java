@@ -8,9 +8,9 @@ package com.abraham.pojo;
 public class UserTwo {
     private String name;
 
-        public UserTwo() {
-            System.out.println("UserTwo被创建了！");
-        }
+    public UserTwo() {
+        System.out.println("UserTwo被创建了！");
+    }
 
     public String getName() {
         return name;

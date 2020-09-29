@@ -7,12 +7,14 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="cat" class="com.abraham.pojo.Cat"/>
-    <bean id="dog" class="com.abraham.pojo.Dog"/>
-    <bean id="dog2" class="com.abraham.pojo.Dog"/>
-    <bean id="dog3" class="com.abraham.pojo.Dog"/>
+    <bean id="cat1" class="com.abraham.pojo.Cat"/>
+    <bean id="cat2" class="com.abraham.pojo.Cat"/>
+    <bean id="dog1" class="com.abraham.pojo.Dog"/>
+<!--    <bean id="dog2" class="com.abraham.pojo.Dog"/>-->
+<!--    <bean id="dog3" class="com.abraham.pojo.Dog"/>-->
     <bean id="people" class="com.abraham.pojo.People" />
 
+    <!--开启注解支持-->
     <context:annotation-config/>
 
 </beans>

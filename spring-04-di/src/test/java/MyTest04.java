@@ -10,6 +10,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2020/9/7
  */
 public class MyTest04 {
+
+    /**
+     * 测试使用set依赖注入
+     */
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Student student = (Student) context.getBean("student");
@@ -27,6 +31,9 @@ public class MyTest04 {
          */
     }
 
+    /**
+     * 测试c命名空间和p命名空间
+     */
     @Test
     public void test2(){
         ApplicationContext context = new ClassPathXmlApplicationContext("userBean.xml");
@@ -34,12 +41,14 @@ public class MyTest04 {
         System.out.println(user);
     }
 
-    // 测试Bean的作用域
+    /**
+     * 测试Bean的作用域
+     */
     @Test
     public void test3(){
         ApplicationContext context = new ClassPathXmlApplicationContext("userBean.xml");
         User user = (User) context.getBean("user");
-        User user2 = context.getBean("user2", User.class);
+        User user2 = (User) context.getBean("user");
         System.out.println(user.hashCode());
         System.out.println(user2.hashCode());
         System.out.println(user==user2);

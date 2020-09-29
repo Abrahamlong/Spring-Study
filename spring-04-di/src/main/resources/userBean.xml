@@ -9,6 +9,6 @@
     <bean id="user" class="com.abraham.pojo.User" p:name="long" p:age="24" />
 
     <!--c命名空间注入，可以通过构造器注入属性的值：construct-args-->
-    <bean id="user2" class="com.abraham.pojo.User" c:name="long" c:age="24" scope="prototype"/>
+    <bean id="user2" class="com.abraham.pojo.User" c:name="abraham" c:age="18" />
 
 </beans>

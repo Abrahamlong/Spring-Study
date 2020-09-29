@@ -4,6 +4,7 @@ package com.abraham.demo02;
  * @author long
  * @date 2020/9/9
  */
+// 真实角色
 public class UserServiceImpl implements UserService {
     public void add() {
         System.out.println("增加了一个用户");

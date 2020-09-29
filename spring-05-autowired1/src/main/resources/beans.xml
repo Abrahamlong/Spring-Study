@@ -3,15 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="cat" class="com.abraham.pojo.Cat"/>-->
-<!--    <bean id="dog" class="com.abraham.pojo.Dog"/>-->
-<!--    &lt;!&ndash;-->
-<!--        byName:会自动在容器上下文中查找和自己对象set方法后面的值对应的bean-id;-->
-<!--        byType:会自动在容器上下文中查找和自己对象属性类型相同的bean (必须保证装配全局唯一,可省略id参数);-->
-<!--    &ndash;&gt;-->
-<!--    <bean id="people" class="com.abraham.pojo.People" autowire="byName">-->
-<!--        <property name="name" value="long"/>-->
-<!--&lt;!&ndash;        <property name="dog" ref="dog"/>&ndash;&gt;-->
-<!--&lt;!&ndash;        <property name="cat" ref="cat"/>&ndash;&gt;-->
-<!--    </bean>-->
+    <bean id="cat" class="com.abraham.pojo.Cat"/>
+    <bean id="dog" class="com.abraham.pojo.Dog"/>
+    <!--
+        byName:会自动在容器上下文中查找和自己对象set方法后面的值对应的bean-id;【按名称自动装配】
+        byType:会自动在容器上下文中查找和自己对象属性类型相同的bean (必须保证装配全局唯一,可省略id参数);【按类型自动装配】
+    -->
+    <bean id="people" class="com.abraham.pojo.People" autowire="byName">
+        <property name="name" value="long"/>
+<!--        <property name="dog" ref="dog"/>-->
+<!--        <property name="cat" ref="cat"/>-->
+    </bean>
 </beans>

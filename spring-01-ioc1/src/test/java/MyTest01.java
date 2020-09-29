@@ -1,3 +1,5 @@
+import com.abraham.dao.UserDaoImpl;
+import com.abraham.dao.UserDaoMysqlImpl;
 import com.abraham.service.UserServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,10 +17,10 @@ public class MyTest01 {
         // 用户实际调用的是业务层，dao层他们不需要接触
         UserServiceImpl userService = new UserServiceImpl();
 
-        userService.setUserDao(new UserDaoImpl());
+        userService.setUserDao(new UserDaoMysqlImpl());
 
         userService.getUser();
-        */
+         */
 
         /**
          * 通过配置文件去创建对象，对象由Spring的配置文件去创建

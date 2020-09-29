@@ -1,5 +1,6 @@
 package com.abraham.config;
 
+import com.abraham.pojo.Student;
 import com.abraham.pojo.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +22,11 @@ public class LongConfig {
     @Bean
     public User user(){ // 方法名等于Bean的id
         return new User();  //返回要注入的bean对象
+    }
+
+    @Bean
+    public Student student(){
+        return new Student();
     }
 
 }

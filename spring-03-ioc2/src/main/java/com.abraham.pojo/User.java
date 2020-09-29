@@ -3,9 +3,9 @@ package com.abraham.pojo;
 public class User{
     private String name;
 
-//    public User() {
-//        System.out.println("User的无参构造！！");
-//    }
+    public User() {
+        System.out.println("User的无参构造！！");
+    }
 
     // 有参构造
     public User(String name) {
