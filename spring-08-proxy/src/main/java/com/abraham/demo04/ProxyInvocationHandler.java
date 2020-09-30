@@ -10,7 +10,7 @@ import java.lang.reflect.Proxy;
  * @author long
  * @date 2020/9/9
  */
-// 该类会自动生成我们需要的代理类！
+// 该类会自动生成我们需要的代理类！（相当于工具类）
 public class ProxyInvocationHandler implements InvocationHandler {
 
     // 被代理的接口

@@ -32,7 +32,7 @@ public class AnnotationPointCut {
 
         // 获得签名,返回被执行的方法名称
         Signature signature = pjp.getSignature();
-        System.out.println("  " + signature);
+        System.out.println(signature);
 
         // 执行方法
         try {

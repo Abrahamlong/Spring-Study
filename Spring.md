@@ -859,7 +859,7 @@ public class MyTest07 {
 
 #### 11.1  静态代理
 
-> **demo1、demo2包**
+> **demo1**
 
 **角色分析：**
 
@@ -961,9 +961,114 @@ public class Client {
 
 **<u>  我们想要静态代理的好处，又不想要静态代理的缺点，所以 , 就有了动态代理!</u>**
 
-#### 11.2  动态代理
+#### 11.2 静态代理再理解
 
-> demo03、demo04包
+> **demo2包**
+
+1. 接口（抽象角色）
+
+```java
+// 抽象角色
+public interface UserService {
+    public void add();
+    public void delete();
+    public void update();
+    public void select();
+}
+```
+
+2. 真实角色
+
+```java
+// 真实角色
+public class UserServiceImpl implements UserService {
+    public void add() {
+        System.out.println("增加了一个用户");
+    }
+
+    public void delete() {
+        System.out.println("删除了一个用户");
+    }
+
+    public void update() {
+        System.out.println("修改了一个用户");
+    }
+
+    public void select() {
+        System.out.println("查询了一个用户");
+    }
+}
+```
+
+3. 代理角色
+
+   需求来了，现在我们需要增加一个日志功能，怎么实现！
+
+   - 思路1 ：在实现类上增加代码 【麻烦】
+   - 思路2：使用代理来做，能够不改变原来的业务情况下，实现此功能就是最好的了！
+
+```java
+// 代理角色
+public class UserServiceProxy implements UserService{
+
+    private UserService userService;
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    public void add() {
+        log("add");
+        userService.add();
+    }
+
+    public void delete() {
+        log("delete");
+        userService.delete();
+    }
+
+    public void update() {
+        log("update");
+        userService.update();
+    }
+
+    public void select() {
+        log("select");
+        userService.select();
+    }
+
+    // 日志方法
+    public void log(String msg){
+        System.out.println("[Debug] 使用了" + msg + "方法！");
+    }
+}
+```
+
+4. 用户
+
+```java
+// 用户
+public class Customer {
+    public static void main(String[] args) {
+        UserService userService = new UserServiceImpl();
+//        userService.delete();
+        UserServiceProxy proxy = new UserServiceProxy();
+        proxy.setUserService(userService);
+
+        proxy.delete();
+
+        proxy.add();
+    }
+}
+```
+
+我们在不改变原来的代码的情况下，实现了对原有功能的增强，这是AOP中最核心的思想
+
+聊聊AOP：纵向开发，横向开发
+
+#### 11.3  动态代理
+
+> **demo03、demo04包**
 
 - 动态代理和静态代理的角色一样；
 - 动态代理的代理类是动态生成的，不是我们直接写好的；
@@ -974,7 +1079,37 @@ public class Client {
 
 
 
-需要了解两个类：Proxy.java 和 InvocationHandler.java
+**JDK的动态代理需要了解两个类**
+
+核心 : InvocationHandler 和 Proxy ， 打开JDK帮助文档看看
+
+【InvocationHandler：调用处理程序】
+
+[![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLxvyvZMwn9gIEibuxjFwE3enJ4TgKO5PXxM5BPr6Bh7GQwExLvst4AsQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLxvyvZMwn9gIEibuxjFwE3enJ4TgKO5PXxM5BPr6Bh7GQwExLvst4AsQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+```java
+Object invoke(Object proxy, 方法 method, Object[] args)；
+//参数
+//proxy - 调用该方法的代理实例
+//method -所述方法对应于调用代理实例上的接口方法的实例。方法对象的声明类将是该方法声明的接口，它可以是代理类继承该方法的代理接口的超级接口。
+//args -包含的方法调用传递代理实例的参数值的对象的阵列，或null如果接口方法没有参数。原始类型的参数包含在适当的原始包装器类的实例中，例如java.lang.Integer或java.lang.Boolean 。
+```
+
+【Proxy : 代理】
+
+[![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLficZiaPU0h9wdeDicTMgBHemVvIdYTsE712DhkDfg0pdRg169oG5FHTmw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLficZiaPU0h9wdeDicTMgBHemVvIdYTsE712DhkDfg0pdRg169oG5FHTmw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+[![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLCIv9ibKb4c9KjmZNNbsDbZojUy0aB1lS3ibqa1SJaBzkK7KneicEX43Zw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLCIv9ibKb4c9KjmZNNbsDbZojUy0aB1lS3ibqa1SJaBzkK7KneicEX43Zw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+[![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jML394CqGFmCP1nUlaU9mdLk19o1qIzjicTgDiaPz7ibR371jAo3uNNQ8Qgw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jML394CqGFmCP1nUlaU9mdLk19o1qIzjicTgDiaPz7ibR371jAo3uNNQ8Qgw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+```java
+//生成代理类
+public Object getProxy(){
+   return Proxy.newProxyInstance(this.getClass().getClassLoader(),
+                                 rent.getClass().getInterfaces(),this);
+}
+```
 
 ==【重点】 理解反射机制（补学）==
 
@@ -994,17 +1129,23 @@ public class Client {
 
 AOP意为：**面向切面编程**，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
 
+![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JAeTYOaaH6rZ6WmLLgwQLHf5pmH30gj6mZm81PC7iauicFu55sicJtspU7K3vTCVdZCDTSHq7D5XHlw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 #### 11.2AOP在Spring中的作用
 
 ==提供声明式事物，允许用户自定义切面==
 
-- 横向关注点：通常是业务逻辑的实现功能，如日志，安全，缓存等等；
-- 切面：通常是一个类；
-- 通知：通常是这个类中的方法；
+- 横向关注点：：跨越应用程序多个模块的方法或功能。通常是业务逻辑的实现功能，如日志，安全，缓存、事务等等；
+- 切面：横切关注点被模块化的特殊对象。通常是一个类；
+- 通知：切面必须要完成的工作。通常是这个类中的方法；
 - 目标：通常是方法的对象；
-- 代理：
-- 切入点：
-- 连接点：
+- 代理：向目标对象应用通知之后创建的对象。
+- 切入点：切面通知 执行的“地点”的定义。
+- 连接点：与切入点匹配的执行点。
+
+![img](https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JAeTYOaaH6rZ6WmLLgwQLHVOZ1JpRb7ViaprZCRXsUbH0bZpibiaTjqib68LQHOWZicSvuU8Y1dquUVGw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
 
 #### 11.3  使用Spring实现AOP
 
@@ -1081,6 +1222,24 @@ public class MyTest {
     }
 }
 ```
+
+- 在使用spring框架配置AOP的时候，不管是通过XML配置文件还是注解的方式都需要定义pointcut”切入点”
+
+  例如定义切入点表达式 **`execution (* com.sample.service.impl..***. \***(..))`**
+
+- execution()是最常用的切点函数，其语法如下所示：
+
+  整个表达式可以分为五个部分：
+
+  1. **execution()** ：表达式主体；
+
+  2. **第一个 * 号** ：表示返回类型， *号表示所有的类型；
+
+  3. **包名**：表示需要拦截的包名，后面的两个句点表示当前包和当前包的所有子包，com.sample.service.impl包、子孙包下所有类的方法；
+
+  4. **第二个 * 号**：表示类名，*号表示所有的类；
+
+  5. ***(..)**：最后这个星号表示方法名，*号表示所有的方法，后面括弧里面表示方法的参数，两个句点表示任何参数；
 
 **方式二：使用自定义类来实现AOP** 【主要是切面的定义】
 

@@ -9,7 +9,7 @@ public class Client {
         // 真实角色
         Host host = new Host();
 
-        // 真实角色
+        // 代理角色
         ProxyInvocationHandler proxyInvocationHandler = new ProxyInvocationHandler();
         // 通过调用程序处理角色处理我们要调用的接口对象
         proxyInvocationHandler.setRent(host);
