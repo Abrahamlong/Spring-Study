@@ -1587,39 +1587,96 @@ public class AnnotationPointCut {
 
 #### 14.2  spring中的事务管理
 
-- 声明式事务：AOP；
+​	Spring在不同的事务管理API之上定义了一个抽象层，使得开发人员不必了解底层的事务管理API就可以使用Spring的事务管理机制。Spring支持编程式事务管理和声明式的事务管理。
 
-  配置文件：
+**编程式事务管理**
 
-  ```java
-  	<!--结合AOP实现事务的织入-->
-      <!--配置事务通知：-->
-      <tx:advice id="txAdvice" transaction-manager="transactionManager">
-          <!--给哪些方法配置事务-->
-          <!--配置事务的传播特性：new propagation-->
-          <tx:attributes>
-              <tx:method name="add" propagation="REQUIRED"/>
-              <tx:method name="delete" propagation="REQUIRED"/>
-              <tx:method name="update" propagation="REQUIRED"/>
-              <tx:method name="select" read-only="true"/>
-              <tx:method name="*" propagation="REQUIRED"/>   <!--所有方法-->
-          </tx:attributes>
-      </tx:advice>
-  
-      <!--配置事务的切入-->
-      <aop:config>
-          <aop:pointcut id="txPointCut" expression="execution(* com.abraham.mapper.*.*(..))"/>
-          <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
-      </aop:config>
-  ```
+- 将事务管理代码嵌到业务方法中来控制事务的提交和回滚
+- 缺点：必须在每个事务操作业务逻辑中包含额外的事务管理代码
 
-  **配置事务的传播特性：propagation**
+**声明式事务管理**
 
-  ![image-20200911101932507](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200911101932507.png)
+- 一般情况下比编程式事务好用。
+- 将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理。
+- 将事务管理作为横切关注点，通过aop方法模块化。Spring中通过Spring AOP框架支持声明式事务管理。
 
-- 编程式事务：需要在代码中，进行事务的管理；
+**使用Spring管理事务，注意头文件的约束导入 : tx**
 
+```xml
+xmlns:tx="http://www.springframework.org/schema/tx"
 
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+```
+
+**事务管理器**
+
+- 无论使用Spring的哪种事务管理策略（编程式或者声明式）事务管理器都是必须的。
+- 就是 Spring的核心事务管理抽象，管理封装了一组独立于技术的方法。
+
+**JDBC事务**
+
+```XML
+<!--配置声明式事务-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <constructor-arg ref="dataSource" />
+</bean>
+```
+
+**配置好事务管理器后我们需要去配置事务的通知**
+
+```XML
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <!--给哪些方法配置事务-->
+    <!--配置事务的传播特性：new propagation-->
+    <tx:attributes>
+        <tx:method name="add" propagation="REQUIRED"/>
+        <tx:method name="delete" propagation="REQUIRED"/>
+        <tx:method name="update" propagation="REQUIRED"/>
+        <tx:method name="select" read-only="true"/>
+        <tx:method name="*" propagation="REQUIRED"/>   <!--所有方法-->
+    </tx:attributes>
+</tx:advice>
+```
+
+**声明式事务：配置AOP**
+
+```xml
+<!--配置事务的切入-->
+<aop:config>
+    <aop:pointcut id="txPointCut" expression="execution(* com.abraham.mapper.*.*(..))"/>
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+</aop:config>
+```
+
+配置文件：
+
+```XML
+
+<!--结合AOP实现事务的织入-->
+<!--配置事务通知：-->
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <!--给哪些方法配置事务-->
+    <!--配置事务的传播特性：new propagation-->
+    <tx:attributes>
+        <tx:method name="add" propagation="REQUIRED"/>
+        <tx:method name="delete" propagation="REQUIRED"/>
+        <tx:method name="update" propagation="REQUIRED"/>
+        <tx:method name="select" read-only="true"/>
+        <tx:method name="*" propagation="REQUIRED"/>   <!--所有方法-->
+    </tx:attributes>
+</tx:advice>
+
+<!--配置事务的切入-->
+<aop:config>
+    <aop:pointcut id="txPointCut" expression="execution(* com.abraham.mapper.*.*(..))"/>
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+</aop:config>
+```
+
+**配置事务的传播特性：propagation**
+
+![image-20200911101932507](C:\Users\A80024\AppData\Roaming\Typora\typora-user-images\image-20200911101932507.png)
 
 **为什么需要事务？**
 
