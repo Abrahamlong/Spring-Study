@@ -9,6 +9,7 @@ import java.util.List;
  * @date 2020/9/10
  */
 public interface UserMapper {
+    // 查询所有用户
     public List<User> selectUser();
 
     // 添加一个用户

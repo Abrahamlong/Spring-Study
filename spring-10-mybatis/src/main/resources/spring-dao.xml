@@ -5,11 +5,11 @@
 
     <!--硬核配置，可以直接使用，不需要修改-->
 
-    <!--DataSource:使用Spring的数据源替换MyBatis的配置 c3p0 bdcp druid-->
+    <!--DataSource(数据源):使用Spring的数据源替换MyBatis的配置 c3p0 bdcp druid-->
     <!--这里我们使用Spring提供的jdbc：org.springframework.jdbc.datasource.DriverManagerDataSource-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url"    value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>

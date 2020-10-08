@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8b8396-c214-4d47-a0de-f1bdf811e879" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Spring.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Spring.md" beforeDir="false" afterPath="$PROJECT_DIR$/Spring.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo03/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/ProxyInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-08-proxy/src/main/java/com/abraham/demo04/ProxyInvocationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/diy/AnnotationPointCut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/BeforeLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-09-aop/src/main/java/com/abraham/log/BeforeLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-09-aop/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-10-mybatis/src/main/resources/spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-10-mybatis/src/main/resources/spring-dao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-11-transaction/src/main/java/com/abraham/mapper/UserMapperImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MyTest">
+  <component name="RunManager" selected="JUnit.MyTest11.test">
     <configuration name="Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.abraham.demo03.Client" />
       <module name="spring-08-proxy" />
@@ -150,32 +150,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.abraham.demo01.Client" />
-      <module name="spring-08-proxy" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.abraham.demo01.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Customer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.abraham.demo02.Customer" />
-      <module name="spring-08-proxy" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.abraham.demo02.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyTest" />
       <module name="spring-09-aop" />
@@ -183,20 +157,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyTest10.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-10-mybatis" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest10" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest11.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-11-transaction" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MyTest11" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Customer" />
       <item itemvalue="Application.Client (1)" />
       <item itemvalue="Application.Client (2)" />
       <item itemvalue="Application.MyTest" />
+      <item itemvalue="JUnit.MyTest10.test" />
+      <item itemvalue="JUnit.MyTest11.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTest11.test" />
+        <item itemvalue="JUnit.MyTest10.test" />
         <item itemvalue="Application.MyTest" />
         <item itemvalue="Application.Client (2)" />
         <item itemvalue="Application.Client (1)" />
-        <item itemvalue="Application.Customer" />
-        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +220,8 @@
       <workItem from="1599717403313" duration="16864000" />
       <workItem from="1600239721455" duration="1201000" />
       <workItem from="1600337972260" duration="1239000" />
-      <workItem from="1601340161847" duration="29835000" />
+      <workItem from="1601340161847" duration="29943000" />
+      <workItem from="1602116738571" duration="9002000" />
     </task>
     <task id="LOCAL-00001" summary="9.7 学习记录补充">
       <created>1599488243444</created>
@@ -270,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601375348068</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="9.30 二刷视频更新2">
+      <created>1601452722925</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601452722925</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +312,7 @@
     <MESSAGE value="9.10 笔记更新" />
     <MESSAGE value="9.11 学习代码更新" />
     <MESSAGE value="9.29 二刷视频更新1" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.29 二刷视频更新1" />
+    <MESSAGE value="9.30 二刷视频更新2" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.30 二刷视频更新2" />
   </component>
 </project>

@@ -1225,7 +1225,7 @@ public class MyTest {
 
 - 在使用spring框架配置AOP的时候，不管是通过XML配置文件还是注解的方式都需要定义pointcut”切入点”
 
-  例如定义切入点表达式 **`execution (* com.sample.service.impl..***. \***(..))`**
+  例如定义切入点表达式 **execution (* com.sample.service.impl..***. \***(..))**
 
 - execution()是最常用的切点函数，其语法如下所示：
 
@@ -1415,12 +1415,154 @@ public class AnnotationPointCut {
 
 #### 12.2  MyBatis-Spring
 
+- ##### 实现方法一
+
 1. 编写数据源；
+
+   ```XML
+   <!--DataSource(数据源):使用Spring的数据源替换MyBatis的配置 c3p0 bdcp druid-->
+   <!--这里我们使用Spring提供的jdbc：org.springframework.jdbc.datasource.DriverManagerDataSource-->
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+       <property name="username" value="root"/>
+       <property name="password" value="123456"/>
+   </bean>
+   ```
+
 2. SqlSessionFactory；
+
+   ```XML
+   <!--sqlSessionFactory-->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+       <property name="dataSource" ref="dataSource" />
+       <!--绑定MyBatis的配置文件：mybatis-config-->
+       <property name="configLocation" value="classpath:mybatis-config.xml"/>
+       <property name="mapperLocations" value="classpath:com/abraham/mapper/*.xml"/>
+   </bean>
+   ```
+
 3. SqlSessionTemplate；
+
+   ```XML
+   <!--SqlSessionTemplate：就是我们使用的sqlSession-->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+       <!--只能使用构造器注入sqlSessionFactory，因为它没有set方法-->
+       <constructor-arg index="0" ref="sqlSessionFactory"/>
+   </bean>
+   ```
+
 4. 需要给接口增加实现类；
+
+   ```JAVA
+   public class UserMapperImpl implements UserMapper {
+   
+       // 在原来我们的所有操作都使用sqlSession来执行，现在都使用 SqlSessionTemplate；
+       private SqlSessionTemplate sqlSession;
+   
+       public void setSqlSession(SqlSessionTemplate sqlSession) {
+           this.sqlSession = sqlSession;
+       }
+   
+       public List<User> selectUser() {
+           UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+           return mapper.selectUser();
+       }
+   }
+   ```
+
 5. 将自己写的实现类注入到Spring中；
+
+   ```XML
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <import resource="spring-dao.xml"/>
+   
+       <!--方式一 -->
+       <bean id="userMapper" class="com.abraham.mapper.UserMapperImpl">
+           <property name="sqlSession" ref="sqlSession"/>
+       </bean>
+   
+   </beans>
+   ```
+
 6. 测试使用即可；
+
+   ```JAVA
+   @Test
+   public void test() throws IOException {
+       ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+   
+       UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
+   
+       for (User user: userMapper.selectUser()) {
+           System.out.println(user);
+       }
+   }
+   ```
+
+- ##### 实现方法二
+
+1. 编写数据源；【同上】
+
+2. SqlSessionFactory；【同上】
+
+3. SqlSessionTemplate；【同上】
+
+4. 修改实现类；
+
+   ```java
+   public class UserMapperImplTwo extends SqlSessionDaoSupport implements UserMapper {
+       public List<User> selectUser() {
+   //        SqlSession sqlSession = getSqlSession();
+   //        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+   //        return mapper.selectUser();
+           return getSqlSession().getMapper(UserMapper.class).selectUser();
+       }
+   }
+   ```
+
+5. 修改bean配置的注入；
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <import resource="spring-dao.xml"/>
+   
+       <!--方式一 -->
+       <bean id="userMapper" class="com.abraham.mapper.UserMapperImpl">
+           <property name="sqlSession" ref="sqlSession"/>
+       </bean>
+   
+       <!--方式二-->
+       <bean id="userMapperTwo" class="com.abraham.mapper.UserMapperImplTwo">
+           <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+       </bean>
+   </beans>
+   ```
+
+6. 修改Test类；
+
+   ```java
+   @Test
+   public void test() throws IOException {
+       ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+   
+       UserMapper userMapper = context.getBean("userMapperTwo", UserMapper.class);
+   
+       for (User user: userMapper.selectUser()) {
+           System.out.println(user);
+       }
+   }
+   ```
+
+**总结 : 整合到spring以后可以完全不要mybatis的配置文件，除了这些方式可以实现整合之外，我们还可以使用注解来实现，这个等我们后面学习SpringBoot的时候还会测试整合！**
 
 ---
 
@@ -1432,14 +1574,16 @@ public class AnnotationPointCut {
 - 事务在项目开发中，十分的重要，涉及到数据一致性的问题，不能马虎；
 - 确保完整性和一致性；
 
-事务的ACID原则：
+**事务的ACID原则：**
 
-- 原子性
-- 一致性
-- 隔离性
-  - 多个业务可能操作同一个资源，防止数据损坏；
-- 持久性
-  - 事务一旦提交，无论系统发生声明问题，结果都不会被影响，被持久化的写到存储器中；
+- 原子性（atomicity）
+  - 事务是原子性操作，由一系列动作组成，事务的原子性确保动作要么全部完成，要么完全不起作用;
+- 一致性（consistency）
+  - 一旦所有事务动作完成，事务就要被提交。数据和资源处于一种满足业务规则的一致性状态中;
+- 隔离性（isolation）
+  - 可能多个事务会同时处理相同的数据，因此每个事务都应该与其他事务隔离开来，防止数据损坏;
+- 持久性（durability）
+  - 事务一旦完成，无论系统发生什么错误，结果都不会受到影响。通常情况下，事务的结果被写到持久化存储器中;
 
 #### 14.2  spring中的事务管理
 
